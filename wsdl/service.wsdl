@@ -1,0 +1,632 @@
+<wsdl:definitions xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://dataDownload.webservices.eegdatabase.kiv.zcu.cz/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="UserDataImplService" targetNamespace="http://dataDownload.webservices.eegdatabase.kiv.zcu.cz/">
+<wsdl:types>
+<xs:schema xmlns:tns="http://dataDownload.webservices.eegdatabase.kiv.zcu.cz/" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://dataDownload.webservices.eegdatabase.kiv.zcu.cz/">
+<xs:element name="addOfUpdateWeather" type="tns:addOfUpdateWeather"/>
+<xs:element name="addOfUpdateWeatherResponse" type="tns:addOfUpdateWeatherResponse"/>
+<xs:element name="addOrUpdateDataFile" type="tns:addOrUpdateDataFile"/>
+<xs:element name="addOrUpdateDataFileResponse" type="tns:addOrUpdateDataFileResponse"/>
+<xs:element name="addOrUpdateExperiment" type="tns:addOrUpdateExperiment"/>
+<xs:element name="addOrUpdateExperimentResponse" type="tns:addOrUpdateExperimentResponse"/>
+<xs:element name="addOrUpdateHardware" type="tns:addOrUpdateHardware"/>
+<xs:element name="addOrUpdateHardwareResponse" type="tns:addOrUpdateHardwareResponse"/>
+<xs:element name="addOrUpdatePerson" type="tns:addOrUpdatePerson"/>
+<xs:element name="addOrUpdatePersonResponse" type="tns:addOrUpdatePersonResponse"/>
+<xs:element name="addOrUpdateResearchGroup" type="tns:addOrUpdateResearchGroup"/>
+<xs:element name="addOrUpdateResearchGroupResponse" type="tns:addOrUpdateResearchGroupResponse"/>
+<xs:element name="addOrUpdateScenario" type="tns:addOrUpdateScenario"/>
+<xs:element name="addOrUpdateScenarioResponse" type="tns:addOrUpdateScenarioResponse"/>
+<xs:element name="downloadDataFile" type="tns:downloadDataFile"/>
+<xs:element name="downloadDataFileResponse" type="tns:downloadDataFileResponse"/>
+<xs:element name="getDataFiles" type="tns:getDataFiles"/>
+<xs:element name="getDataFilesResponse" type="tns:getDataFilesResponse"/>
+<xs:element name="getExperiments" type="tns:getExperiments"/>
+<xs:element name="getExperimentsResponse" type="tns:getExperimentsResponse"/>
+<xs:element name="getHardware" type="tns:getHardware"/>
+<xs:element name="getHardwareResponse" type="tns:getHardwareResponse"/>
+<xs:element name="getPeople" type="tns:getPeople"/>
+<xs:element name="getPeopleResponse" type="tns:getPeopleResponse"/>
+<xs:element name="getResearchGroups" type="tns:getResearchGroups"/>
+<xs:element name="getResearchGroupsResponse" type="tns:getResearchGroupsResponse"/>
+<xs:element name="getScenarios" type="tns:getScenarios"/>
+<xs:element name="getScenariosResponse" type="tns:getScenariosResponse"/>
+<xs:element name="getWeather" type="tns:getWeather"/>
+<xs:element name="getWeatherResponse" type="tns:getWeatherResponse"/>
+<xs:element name="isServiceAvailable" type="tns:isServiceAvailable"/>
+<xs:element name="isServiceAvailableResponse" type="tns:isServiceAvailableResponse"/>
+<xs:complexType name="getDataFiles">
+<xs:sequence>
+<xs:element name="arg0" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getDataFilesResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:dataFileInfo"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="dataFileInfo">
+<xs:sequence>
+<xs:element name="added" type="xs:boolean"/>
+<xs:element name="changed" type="xs:boolean"/>
+<xs:element minOccurs="0" name="description" type="xs:string"/>
+<xs:element name="experimentId" type="xs:int"/>
+<xs:element name="fileId" type="xs:int"/>
+<xs:element name="fileLength" type="xs:long"/>
+<xs:element minOccurs="0" name="fileName" type="xs:string"/>
+<xs:element minOccurs="0" name="mimeType" type="xs:string"/>
+<xs:element name="scn" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="addOrUpdateResearchGroup">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:researchGroupInfo"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="researchGroupInfo">
+<xs:sequence>
+<xs:element name="added" type="xs:boolean"/>
+<xs:element name="changed" type="xs:boolean"/>
+<xs:element minOccurs="0" name="description" type="xs:string"/>
+<xs:element name="ownerId" type="xs:int"/>
+<xs:element name="researchGroupId" type="xs:int"/>
+<xs:element name="scn" type="xs:long"/>
+<xs:element minOccurs="0" name="title" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="addOrUpdateResearchGroupResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getWeather">
+<xs:sequence>
+<xs:element name="arg0" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getWeatherResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:weatherInfo"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="weatherInfo">
+<xs:sequence>
+<xs:element name="added" type="xs:boolean"/>
+<xs:element name="changed" type="xs:boolean"/>
+<xs:element minOccurs="0" name="description" type="xs:string"/>
+<xs:element name="scn" type="xs:long"/>
+<xs:element minOccurs="0" name="title" type="xs:string"/>
+<xs:element name="weatherId" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="addOfUpdateWeather">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:weatherInfo"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="addOfUpdateWeatherResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getPeople">
+<xs:sequence>
+<xs:element name="arg0" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getPeopleResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:personInfo"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="personInfo">
+<xs:sequence>
+<xs:element name="added" type="xs:boolean"/>
+<xs:element name="changed" type="xs:boolean"/>
+<xs:element name="defaultGroupId" type="xs:int"/>
+<xs:element name="gender" type="xs:unsignedShort"/>
+<xs:element minOccurs="0" name="givenName" type="xs:string"/>
+<xs:element name="personId" type="xs:int"/>
+<xs:element name="scn" type="xs:long"/>
+<xs:element minOccurs="0" name="surname" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getScenarios">
+<xs:sequence>
+<xs:element name="arg0" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getScenariosResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:scenarioInfo"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="scenarioInfo">
+<xs:sequence>
+<xs:element name="added" type="xs:boolean"/>
+<xs:element name="changed" type="xs:boolean"/>
+<xs:element minOccurs="0" name="description" type="xs:string"/>
+<xs:element minOccurs="0" name="mimeType" type="xs:string"/>
+<xs:element name="ownerId" type="xs:int"/>
+<xs:element name="researchGroupId" type="xs:int"/>
+<xs:element name="scenarioId" type="xs:int"/>
+<xs:element name="scenarioLength" type="xs:int"/>
+<xs:element minOccurs="0" name="scenarioName" type="xs:string"/>
+<xs:element name="scn" type="xs:long"/>
+<xs:element minOccurs="0" name="title" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getResearchGroups">
+<xs:sequence>
+<xs:element name="arg0" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getResearchGroupsResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:researchGroupInfo"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="addOrUpdatePerson">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:personInfo"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="addOrUpdatePersonResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="downloadDataFile">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="downloadDataFileResponse">
+<xs:sequence>
+<xs:element xmlns:ns1="http://www.w3.org/2005/05/xmlmime" minOccurs="0" name="return" ns1:expectedContentTypes="application/octet-stream" type="xs:base64Binary"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getExperiments">
+<xs:sequence>
+<xs:element name="arg0" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getExperimentsResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:experimentInfo"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="experimentInfo">
+<xs:sequence>
+<xs:element name="added" type="xs:boolean"/>
+<xs:element name="changed" type="xs:boolean"/>
+<xs:element minOccurs="0" name="digitizationInfo" type="tns:digitizationInfo"/>
+<xs:element name="endTimeInMillis" type="xs:long"/>
+<xs:element name="experimentId" type="xs:int"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="hwIds" nillable="true" type="xs:int"/>
+<xs:element name="ownerId" type="xs:int"/>
+<xs:element name="privateFlag" type="xs:int"/>
+<xs:element name="researchGroupId" type="xs:int"/>
+<xs:element name="scenarioId" type="xs:int"/>
+<xs:element name="scn" type="xs:long"/>
+<xs:element name="startTimeInMillis" type="xs:long"/>
+<xs:element name="subjectGroupId" type="xs:int"/>
+<xs:element name="subjectPersonId" type="xs:int"/>
+<xs:element name="temperature" type="xs:int"/>
+<xs:element minOccurs="0" name="title" type="xs:string"/>
+<xs:element name="weatherId" type="xs:int"/>
+<xs:element minOccurs="0" name="weatherNote" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="digitizationInfo">
+<xs:sequence>
+<xs:element minOccurs="0" name="filter" type="xs:string"/>
+<xs:element name="gain" type="xs:float"/>
+<xs:element name="samplingRate" type="xs:float"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="addOrUpdateScenario">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:scenarioInfo"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="addOrUpdateScenarioResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="addOrUpdateDataFile">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:dataFileInfo"/>
+<xs:element xmlns:ns2="http://www.w3.org/2005/05/xmlmime" minOccurs="0" name="arg1" ns2:expectedContentTypes="application/octet-stream" type="xs:base64Binary"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="addOrUpdateDataFileResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getHardware">
+<xs:sequence>
+<xs:element name="arg0" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getHardwareResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:hardwareInfo"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="hardwareInfo">
+<xs:sequence>
+<xs:element name="added" type="xs:boolean"/>
+<xs:element name="changed" type="xs:boolean"/>
+<xs:element minOccurs="0" name="description" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="experimentIds" nillable="true" type="xs:int"/>
+<xs:element name="hardwareId" type="xs:int"/>
+<xs:element name="scn" type="xs:long"/>
+<xs:element minOccurs="0" name="title" type="xs:string"/>
+<xs:element minOccurs="0" name="type" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="isServiceAvailable">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="isServiceAvailableResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="addOrUpdateExperiment">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:experimentInfo"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="addOrUpdateExperimentResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="addOrUpdateHardware">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:hardwareInfo"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="addOrUpdateHardwareResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="UserDataServiceException" type="tns:UserDataServiceException"/>
+<xs:complexType name="UserDataServiceException">
+<xs:sequence/>
+</xs:complexType>
+</xs:schema>
+</wsdl:types>
+<wsdl:message name="addOrUpdateHardwareResponse">
+<wsdl:part element="tns:addOrUpdateHardwareResponse" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="getDataFilesResponse">
+<wsdl:part element="tns:getDataFilesResponse" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="isServiceAvailableResponse">
+<wsdl:part element="tns:isServiceAvailableResponse" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="getScenariosResponse">
+<wsdl:part element="tns:getScenariosResponse" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="getPeople">
+<wsdl:part element="tns:getPeople" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="UserDataServiceException">
+<wsdl:part element="tns:UserDataServiceException" name="UserDataServiceException"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="getExperimentsResponse">
+<wsdl:part element="tns:getExperimentsResponse" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="addOfUpdateWeather">
+<wsdl:part element="tns:addOfUpdateWeather" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="addOrUpdateScenario">
+<wsdl:part element="tns:addOrUpdateScenario" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="getDataFiles">
+<wsdl:part element="tns:getDataFiles" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="addOrUpdateScenarioResponse">
+<wsdl:part element="tns:addOrUpdateScenarioResponse" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="addOrUpdateExperimentResponse">
+<wsdl:part element="tns:addOrUpdateExperimentResponse" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="getPeopleResponse">
+<wsdl:part element="tns:getPeopleResponse" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="addOrUpdateResearchGroup">
+<wsdl:part element="tns:addOrUpdateResearchGroup" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="addOrUpdateDataFile">
+<wsdl:part element="tns:addOrUpdateDataFile" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="addOrUpdatePerson">
+<wsdl:part element="tns:addOrUpdatePerson" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="getResearchGroups">
+<wsdl:part element="tns:getResearchGroups" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="getResearchGroupsResponse">
+<wsdl:part element="tns:getResearchGroupsResponse" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="addOrUpdatePersonResponse">
+<wsdl:part element="tns:addOrUpdatePersonResponse" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="addOfUpdateWeatherResponse">
+<wsdl:part element="tns:addOfUpdateWeatherResponse" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="getHardware">
+<wsdl:part element="tns:getHardware" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="addOrUpdateExperiment">
+<wsdl:part element="tns:addOrUpdateExperiment" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="addOrUpdateDataFileResponse">
+<wsdl:part element="tns:addOrUpdateDataFileResponse" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="getScenarios">
+<wsdl:part element="tns:getScenarios" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="getExperiments">
+<wsdl:part element="tns:getExperiments" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="isServiceAvailable">
+<wsdl:part element="tns:isServiceAvailable" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="getHardwareResponse">
+<wsdl:part element="tns:getHardwareResponse" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="addOrUpdateHardware">
+<wsdl:part element="tns:addOrUpdateHardware" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="getWeather">
+<wsdl:part element="tns:getWeather" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="downloadDataFileResponse">
+<wsdl:part element="tns:downloadDataFileResponse" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="addOrUpdateResearchGroupResponse">
+<wsdl:part element="tns:addOrUpdateResearchGroupResponse" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="getWeatherResponse">
+<wsdl:part element="tns:getWeatherResponse" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="downloadDataFile">
+<wsdl:part element="tns:downloadDataFile" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:portType name="UserDataService">
+<wsdl:operation name="getDataFiles">
+<wsdl:input message="tns:getDataFiles" name="getDataFiles"></wsdl:input>
+<wsdl:output message="tns:getDataFilesResponse" name="getDataFilesResponse"></wsdl:output>
+<wsdl:fault message="tns:UserDataServiceException" name="UserDataServiceException"></wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="addOrUpdateResearchGroup">
+<wsdl:input message="tns:addOrUpdateResearchGroup" name="addOrUpdateResearchGroup"></wsdl:input>
+<wsdl:output message="tns:addOrUpdateResearchGroupResponse" name="addOrUpdateResearchGroupResponse"></wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getWeather">
+<wsdl:input message="tns:getWeather" name="getWeather"></wsdl:input>
+<wsdl:output message="tns:getWeatherResponse" name="getWeatherResponse"></wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="addOfUpdateWeather">
+<wsdl:input message="tns:addOfUpdateWeather" name="addOfUpdateWeather"></wsdl:input>
+<wsdl:output message="tns:addOfUpdateWeatherResponse" name="addOfUpdateWeatherResponse"></wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getPeople">
+<wsdl:input message="tns:getPeople" name="getPeople"></wsdl:input>
+<wsdl:output message="tns:getPeopleResponse" name="getPeopleResponse"></wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getScenarios">
+<wsdl:input message="tns:getScenarios" name="getScenarios"></wsdl:input>
+<wsdl:output message="tns:getScenariosResponse" name="getScenariosResponse"></wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getResearchGroups">
+<wsdl:input message="tns:getResearchGroups" name="getResearchGroups"></wsdl:input>
+<wsdl:output message="tns:getResearchGroupsResponse" name="getResearchGroupsResponse"></wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="addOrUpdatePerson">
+<wsdl:input message="tns:addOrUpdatePerson" name="addOrUpdatePerson"></wsdl:input>
+<wsdl:output message="tns:addOrUpdatePersonResponse" name="addOrUpdatePersonResponse"></wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="downloadDataFile">
+<wsdl:input message="tns:downloadDataFile" name="downloadDataFile"></wsdl:input>
+<wsdl:output message="tns:downloadDataFileResponse" name="downloadDataFileResponse"></wsdl:output>
+<wsdl:fault message="tns:UserDataServiceException" name="UserDataServiceException"></wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="getExperiments">
+<wsdl:input message="tns:getExperiments" name="getExperiments"></wsdl:input>
+<wsdl:output message="tns:getExperimentsResponse" name="getExperimentsResponse"></wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="addOrUpdateScenario">
+<wsdl:input message="tns:addOrUpdateScenario" name="addOrUpdateScenario"></wsdl:input>
+<wsdl:output message="tns:addOrUpdateScenarioResponse" name="addOrUpdateScenarioResponse"></wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="addOrUpdateDataFile">
+<wsdl:input message="tns:addOrUpdateDataFile" name="addOrUpdateDataFile"></wsdl:input>
+<wsdl:output message="tns:addOrUpdateDataFileResponse" name="addOrUpdateDataFileResponse"></wsdl:output>
+<wsdl:fault message="tns:UserDataServiceException" name="UserDataServiceException"></wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="getHardware">
+<wsdl:input message="tns:getHardware" name="getHardware"></wsdl:input>
+<wsdl:output message="tns:getHardwareResponse" name="getHardwareResponse"></wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="isServiceAvailable">
+<wsdl:input message="tns:isServiceAvailable" name="isServiceAvailable"></wsdl:input>
+<wsdl:output message="tns:isServiceAvailableResponse" name="isServiceAvailableResponse"></wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="addOrUpdateExperiment">
+<wsdl:input message="tns:addOrUpdateExperiment" name="addOrUpdateExperiment"></wsdl:input>
+<wsdl:output message="tns:addOrUpdateExperimentResponse" name="addOrUpdateExperimentResponse"></wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="addOrUpdateHardware">
+<wsdl:input message="tns:addOrUpdateHardware" name="addOrUpdateHardware"></wsdl:input>
+<wsdl:output message="tns:addOrUpdateHardwareResponse" name="addOrUpdateHardwareResponse"></wsdl:output>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding name="UserDataImplServiceSoapBinding" type="tns:UserDataService">
+<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="getDataFiles">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="getDataFiles">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="getDataFilesResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="UserDataServiceException">
+<soap:fault name="UserDataServiceException" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="addOrUpdateResearchGroup">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="addOrUpdateResearchGroup">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="addOrUpdateResearchGroupResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getWeather">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="getWeather">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="getWeatherResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="addOfUpdateWeather">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="addOfUpdateWeather">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="addOfUpdateWeatherResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getPeople">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="getPeople">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="getPeopleResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getResearchGroups">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="getResearchGroups">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="getResearchGroupsResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getScenarios">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="getScenarios">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="getScenariosResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="addOrUpdatePerson">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="addOrUpdatePerson">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="addOrUpdatePersonResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="downloadDataFile">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="downloadDataFile">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="downloadDataFileResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="UserDataServiceException">
+<soap:fault name="UserDataServiceException" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="addOrUpdateScenario">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="addOrUpdateScenario">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="addOrUpdateScenarioResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getExperiments">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="getExperiments">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="getExperimentsResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="addOrUpdateDataFile">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="addOrUpdateDataFile">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="addOrUpdateDataFileResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="UserDataServiceException">
+<soap:fault name="UserDataServiceException" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="getHardware">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="getHardware">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="getHardwareResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="addOrUpdateExperiment">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="addOrUpdateExperiment">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="addOrUpdateExperimentResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="isServiceAvailable">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="isServiceAvailable">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="isServiceAvailableResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="addOrUpdateHardware">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="addOrUpdateHardware">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="addOrUpdateHardwareResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="UserDataImplService">
+<wsdl:port binding="tns:UserDataImplServiceSoapBinding" name="UserDataImplPort">
+<soap:address location="https://localhost:8443/eeg-base/webservice/UserDataService"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>

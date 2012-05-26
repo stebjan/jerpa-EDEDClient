@@ -1,0 +1,14 @@
+About EEG/ERP Database Experiment Data Client
+
+EDED Client is a jar "library" meant for JERPa containing all needed classes and libraries to access the EEG/ERP Database and be able to download users experiment data files.
+
+packages:
+wsdl: contains WSDL file of data web service of EEG/ERP Database.
+
+source: contains EDEDSession.java - handles login, logout and provides service variable, throughh which can user invoke web service methods.
+
+ssl: just java file to accept all possible certificates.
+
+lib: contains Apache CXF libraries.
+
+Author: Petr Miko
